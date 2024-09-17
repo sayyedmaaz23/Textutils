@@ -75,7 +75,7 @@ const lighthandle=()=>{
 }
 return (
   <>
-    <Navbar title="Textutils" about="About" mode={mode} Toggle={toggle} greenb={greenhandle} redb={redhandle} lightb={lighthandle} darkb={darkhandle}/>
+    <Navbar title="Textutils" about="About" mode={mode} greenb={greenhandle} redb={redhandle} lightb={lighthandle} darkb={darkhandle}/>
     <Alert alert={alert} />
     <Routes>  {/* Define Routes */}
       <Route path="/" element={<Textfield mode={mode} />} />  {/* Home Page */}
