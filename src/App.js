@@ -32,6 +32,7 @@ function App() {
       setAlert(null)
     }, 1500)
   }
+  /*
   const toggle=()=>{
     if (mode!='dark'){
       setmode('dark')
@@ -43,6 +44,7 @@ function App() {
       showalert("White mode has been enabled", "success");
     }
   }
+    */
 const greenhandle=()=>{
   if(mode!=='green'){
   setmode('green')
