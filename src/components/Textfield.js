@@ -6,7 +6,29 @@ import React from 'react'
 export default function Textfield(props) {
     const [text, setText]=useState("");
     const [res, setres]=useState(text);
-
+    let arr=[];
+    const mode_ext=(curmode)=>
+        {
+          let text;
+        if(curmode==='green'){
+            text='text-bg-success'
+            arr[0]=text;
+            text='btn btn-success'
+            arr[1]=text;  
+        }
+        else if(curmode==='red'){
+            text='text-bg-danger '
+            arr[0]=text;
+            text='btn btn-danger'
+            arr[1]=text;  
+        }
+        else{
+          text=''
+          arr[0]=text;
+          text='btn btn-primary'
+          arr[1]=text;
+        }
+      }
     const handleUpClick=()=>{
         let intext=text.toUpperCase();
         setres(intext);
@@ -34,6 +56,10 @@ export default function Textfield(props) {
         setres(result);
     }
     
+    const handleclear=()=>{
+        setText('');
+    }
+
     const handleonChange = (event) =>{
         setText(event.target.value);
     }
@@ -47,16 +73,18 @@ export default function Textfield(props) {
         return count;
     }
   return (
-    <>
-    <div className={`container text-${props.mode==='light'? 'dark':'light'} my-5`}>
+      <>
+      {mode_ext(props.mode)}
+    <div className={`container text-${props.mode==='light'? 'dark':'light'} my-5 `}>
       <h1>Enter your Text Below</h1>  
       <div className="mb-3" >
-  <textarea className="form-control" value={text} aria-label="With textarea" id="myBox" rows="8" onChange={handleonChange}></textarea>
+  <textarea className={`form-control ${arr[0]}`} value={text} aria-label="With textarea" id="myBox" rows="8" onChange={handleonChange}></textarea>
 </div>
-    <button className="btn btn-primary mx-2" onClick={handleUpClick}> Uppercase </button>
-    <button className="btn btn-primary mx-2" onClick={handleLowClick}> Lowercase </button>
-    <button className="btn btn-primary mx-2" onClick={handleExtemClick}> Extract Email </button>
-    <button className="btn btn-primary mx-2" onClick={handleExtuClick}> Extract URLs </button>
+    <button className={`${arr[1]} mx-2`} onClick={handleUpClick}> Uppercase </button>
+    <button className={`${arr[1]} mx-2`} onClick={handleLowClick}> Lowercase </button>
+    <button className={`${arr[1]} mx-2`} onClick={handleclear}> Clear </button>
+    <button className={`${arr[1]} mx-2`} onClick={handleExtemClick}> Extract Email </button>
+    <button className={`${arr[1]} mx-2`} onClick={handleExtuClick}> Extract URLs </button>
     </div>
     
     <div className={`container my-2 text-${props.mode==='light'? 'dark':'light'}`}>
