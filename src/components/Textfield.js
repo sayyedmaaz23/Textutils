@@ -58,6 +58,7 @@ export default function Textfield(props) {
     
     const handleclear=()=>{
         setText('');
+        setres('')
     }
 
     const handleonChange = (event) =>{
