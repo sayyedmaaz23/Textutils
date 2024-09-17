@@ -1,24 +1,11 @@
 // import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/Navbar';
-import About from './components/About';
 import Textfield from './components/Textfield';
 import Alert from './components/Alert';
 import React, { useState } from 'react'
-import { Router, Routes, Route } from 'react-router-dom';
-
-import { createRoot } from "react-dom/client";
-import {
-  Switch,
-  createBrowserRouter,
-  RouterProvider,
-  Link,
-} from "react-router-dom";
 
 function App() {
-  const [green, setgreen]=useState("light")
-  const [red, setred]=useState("light")
-  const [violet, setviolet]=useState("light")
   const [mode, setmode]=useState("light");
   const [alert, setAlert]=useState(null);
 
@@ -77,10 +64,7 @@ return (
   <>
     <Navbar title="Textutils" about="About" mode={mode} greenb={greenhandle} redb={redhandle} lightb={lighthandle} darkb={darkhandle}/>
     <Alert alert={alert} />
-    <Routes>  {/* Define Routes */}
-      <Route path="/" element={<Textfield mode={mode} />} />  {/* Home Page */}
-      <Route path="about" element={<About  mode={mode}/>} />  {/* About Page */}
-    </Routes>
+    <Textfield mode={mode} />
   </>
 );
 }
